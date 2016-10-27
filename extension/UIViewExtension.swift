@@ -20,7 +20,7 @@ public enum BorderDirect:Int
 
 public extension UIView{
   
-    func setBorder(direct:BorderDirect, color:UIColor, width:CGFloat, edgeInsets:UIEdgeInsets){
+    func setBorder(direct:BorderDirect, color:UIColor, widthOrHeight:CGFloat, edgeInsets:UIEdgeInsets){
         
         let view:UIView = UIView();
         view.tag = direct.rawValue;
@@ -29,33 +29,33 @@ public extension UIView{
         
         if (direct == .topBorder) {
             view.snp_makeConstraints{[weak self](make) -> Void in
-                make.left.equalTo(edgeInsets.left);
-                make.top.equalTo(0);
+                make.left.equalTo(0).offset(edgeInsets.left);
+                make.top.equalTo(0).offset(edgeInsets.top);
                 make.right.equalTo(self!).offset(edgeInsets.right);
-                make.height.equalTo(width);
+                make.height.equalTo(widthOrHeight);
             }
         }
         else if( direct == .leftBorder){
             view.snp_makeConstraints{[weak self](make) -> Void in
                 make.left.equalTo(0);
                 make.top.equalTo(edgeInsets.top);
-                make.width.equalTo(width);
+                make.width.equalTo(widthOrHeight);
                 make.bottom.equalTo(self!).offset(edgeInsets.bottom);
             }
         }
         else if( direct == .bottomBorder){
             view.snp_makeConstraints{[weak self](make) -> Void in
                 make.left.equalTo(edgeInsets.left);
-                make.top.equalTo(self!.frame.height - width * 2);
-                make.width.equalTo(width);
+                make.top.equalTo(self!.frame.height - widthOrHeight * 2);
+                make.width.equalTo(widthOrHeight);
                 make.bottom.equalTo(self!).offset(edgeInsets.bottom);
             }
         }
         else if( direct == .rightBorder){
             view.snp_makeConstraints{[weak self](make) -> Void in
-                make.left.equalTo(self!.frame.width - width);
+                make.left.equalTo(self!.frame.width - widthOrHeight);
                 make.top.equalTo(edgeInsets.top);
-                make.width.equalTo(width);
+                make.width.equalTo(widthOrHeight);
                 make.bottom.equalTo(self!).offset(edgeInsets.bottom);
             }
         }

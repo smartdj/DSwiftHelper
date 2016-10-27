@@ -189,10 +189,10 @@ func LS(key: String) -> String {
 
 // MARK:  Sizes
 
-let kNavBarHeight = 44.0 //self.navigationController.navigationBar.frame.size.height
-let kStatusBarHeight = 20.0 //[UIApplication sharedApplication].statusBarFrame.size.height
-let kStatusAndNavBarsHeight = 64.0//([UIApplication sharedApplication].statusBarFrame.size.height+self.navigationController.navigationBar.frame.size.height)
-var kTabBarHeight:Float {
+let kNavBarHeight:CGFloat = 44.0 //self.navigationController.navigationBar.frame.size.height
+let kStatusBarHeight:CGFloat = 20.0 //[UIApplication sharedApplication].statusBarFrame.size.height
+let kStatusAndNavBarsHeight:CGFloat = 64.0//([UIApplication sharedApplication].statusBarFrame.size.height+self.navigationController.navigationBar.frame.size.height)
+var kTabBarHeight:CGFloat {
     return kSystemVersion >= 8.0 ? 49 : kSystemVersion >= 7.0 ? 56 : kSystemVersion >= 6.0 ? 49 : 0
 }
 // --------------------------------------------------
@@ -200,10 +200,10 @@ var kTabBarHeight:Float {
 // MARK:  Aspects
 // width : height
 
-let kAspect1x1 = 1.0       // 1 : 1
-let kAspect4x3 = 1.33    // 4 : 3
-let kAspect16x10 = 1.6     // 16 : 10
-let kAspect16x9 = 1.78    // 16 : 9
+let kAspect1x1:CGFloat = 1.0       // 1 : 1
+let kAspect4x3:CGFloat = 1.33    // 4 : 3
+let kAspect16x10:CGFloat = 1.6     // 16 : 10
+let kAspect16x9:CGFloat = 1.78    // 16 : 9
 
 // --------------------------------------------------
 
